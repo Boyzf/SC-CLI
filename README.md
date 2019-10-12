@@ -5,20 +5,20 @@
   使用 golang 开发 [开发 Linux 命令行实用程序](https://www.ibm.com/developerworks/cn/linux/shell/clutil/index.html) 中的 **selpg**
 ## 三、设计说明
   先定义数据结构，如下图所示：
-  
+  ![](1.png)
   利用pflag对命令行进行解析，获取需要的参数：
-  
+  ![](2.png)
   获取参数后判断参数是否合理，若不合理则进行报错：
-  
+  ![](3.png)
 ## 四、实验测试
   安装pflag库：
   使用命令：go get github.com/spf13/pflag
- 
+  ![](4.png)
   建立一个测试文件“test.txt”，在文件中按顺序输入1~1500，每行只输一个数字。
   代码中定义了每页的行数为40，使用命令“go run selpg.go -s 1 -e 1 test.txt”可将第一页的内容输出。
-  
+  ![](5.png)
   使用命令“cat test.txt | go run selpg.go -s 10 -e 12”，将test.txt中第10页到第12页的内容输出。
-  
+  ![](6.png)
   使用命令“go run selpg.go -s 8 -e 12 test.txt >output”将test.txt文件中第8行到第12行的内容输出到新建的output文件中。
-  
+  ![](7.png)
   可以看到，selpg的功能基本正常。
